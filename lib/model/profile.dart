@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:localdb_flutter/model/address.dart';
 part 'profile.g.dart';
 
-@HiveType(typeId: 0    )
+@HiveType(typeId: 2    )
 class Profile extends HiveObject {
   @HiveField(0)
   String email;

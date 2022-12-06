@@ -1,30 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'dart:developer';
 import 'package:localdb_flutter/screens/addProfileScreen.dart';
 import 'package:localdb_flutter/screens/addScreen.dart';
 import 'package:localdb_flutter/screens/updateScreen.dart';
 
 class FireAddress {
   String city;
-  String countery;
+  String country;
+  String line1;
+  String line2;
+  String pincode;
+
   FireAddress({
     required this.city,
-    required this.countery,
+    required this.country,
+    required this.line1,
+    required this.line2,
+    required this.pincode,
   });
 }
 
 class FireProfile {
+  String email;
   String firstName;
+  String heading;
   String lastName;
+  String phone;
+  String photograph;
+  String subtitle;
+  String website;
   FireAddress address;
 
   FireProfile({
+    required this.email,
     required this.firstName,
+    required this.heading,
     required this.lastName,
+    required this.phone,
+    required this.photograph,
+    required this.subtitle,
+    required this.website,
     required this.address,
   });
+  
+
 }
 
 class InfoScreen extends StatefulWidget {
@@ -56,15 +77,25 @@ class _InfoScreenState extends State<InfoScreen> {
     print(profileBox.getAt(0).firstName);
 
     FireAddress fAddress = FireAddress(
-        city: addressBox.getAt(0).city, countery: addressBox.getAt(0).country);
+        city: addressBox.getAt(0).city, 
+        country: addressBox.getAt(0).country,
+        line1: addressBox.getAt(0).line1,
+        line2: addressBox.getAt(0).line2,
+        pincode: addressBox.getAt(0).pincode
+        );
 
     FireProfile fProfile = FireProfile(
-        firstName: profileBox.getAt(0).firstName,
-        lastName: profileBox.getAt(0).lastName,
-        address: fAddress);
-
-
-        
+        address: fAddress,
+        email:profileBox.getAt(0).email,
+        firstName:profileBox.getAt(0).firstName,
+        heading:profileBox.getAt(0).heading,
+        lastName:profileBox.getAt(0).lastName,
+        phone:profileBox.getAt(0).phone,
+        photograph:profileBox.getAt(0).photograph,
+        subtitle:profileBox.getAt(0).subtitle,
+        website:profileBox.getAt(0).website,
+        );
+    print(inspect(fProfile));
   }
 
   @override
@@ -78,7 +109,7 @@ class _InfoScreenState extends State<InfoScreen> {
     test();
     return Scaffold(
         appBar: AppBar(
-          title: Text('People Info'),
+          title: const Text('People Info'),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.of(context).push(
@@ -86,10 +117,10 @@ class _InfoScreenState extends State<InfoScreen> {
               builder: (context) => AddScreen(),
             ),
           ),
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
         body: Column(
-          children: [Text("data")],
+          children: const [Text("data")],
         )
 
         // ValueListenableBuilder(
