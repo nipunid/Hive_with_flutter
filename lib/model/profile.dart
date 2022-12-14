@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:localdb_flutter/model/address.dart';
 part 'profile.g.dart';
 
-@HiveType(typeId: 2    )
+@HiveType(typeId: 2)
 class Profile extends HiveObject {
   @HiveField(0)
   String email;
@@ -23,22 +23,22 @@ class Profile extends HiveObject {
   @HiveField(7)
   String website;
 
-  // @override
-  // String toString() {
-  //   return jsonEncode({
+  @override
+  String toString() {
+    return jsonEncode({
      
-  //     'email': this.email,
-  //     'firstName': this.firstName,
-  //     'heading': this.heading,
-  //     'lastName': this.lastName,
-  //     'phone': this.phone,
-  //     'photograph': this.photograph,
-  //     'subtitle': this.subtitle,
-  //     'website': this.website,
+      'email': email,
+      'firstName': firstName,
+      'heading': heading,
+      'lastName': lastName,
+      'phone': phone,
+      'photograph': photograph,
+      'subtitle': subtitle,
+      'website': website,
 
-  //     //'listexam': this.listexam
-  //   });
-  // }
+      //'listexam': this.listexam
+    });
+  }
 
   Profile(
       {

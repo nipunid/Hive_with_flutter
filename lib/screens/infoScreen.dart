@@ -62,41 +62,41 @@ class _InfoScreenState extends State<InfoScreen> {
     print('Item deleted from box at index: $index');
   }
 
-  @override
-  void initState() {
-    super.initState();
-    // Get reference to an already opened box
+// @override
+//   void initState() {
+//     super.initState();
+//     // Get reference to an already opened box
 
-    contactBox = Hive.box('address');
-  }
+//     contactBox = Hive.box('address');
+//   } 
 
-  void test() async {
-    var addressBox = await Hive.openBox('address');
-    var profileBox = await Hive.openBox('profile');
-    print(addressBox.getAt(0).city);
-    print(profileBox.getAt(0).firstName);
+  // void test() async {
+  //   var addressBox = await Hive.openBox('address');
+  //   var profileBox = await Hive.openBox('profile');
+  //   print(addressBox.getAt(0).city);
+  //   print(profileBox.getAt(0).phone);
 
-    FireAddress fAddress = FireAddress(
-        city: addressBox.getAt(0).city, 
-        country: addressBox.getAt(0).country,
-        line1: addressBox.getAt(0).line1,
-        line2: addressBox.getAt(0).line2,
-        pincode: addressBox.getAt(0).pincode
-        );
+  //   FireAddress fAddress = FireAddress(
+  //       city: addressBox.getAt(0).city, 
+  //       country: addressBox.getAt(0).country,
+  //       line1: addressBox.getAt(0).line1,
+  //       line2: addressBox.getAt(0).line2,
+  //       pincode: addressBox.getAt(0).pincode
+  //       );
 
-    FireProfile fProfile = FireProfile(
-        address: fAddress,
-        email:profileBox.getAt(0).email,
-        firstName:profileBox.getAt(0).firstName,
-        heading:profileBox.getAt(0).heading,
-        lastName:profileBox.getAt(0).lastName,
-        phone:profileBox.getAt(0).phone,
-        photograph:profileBox.getAt(0).photograph,
-        subtitle:profileBox.getAt(0).subtitle,
-        website:profileBox.getAt(0).website,
-        );
-    print(inspect(fProfile));
-  }
+  //   FireProfile fProfile = FireProfile(
+  //       address: fAddress,
+  //       email:profileBox.getAt(0).email,
+  //       firstName:profileBox.getAt(0).firstName,
+  //       heading:profileBox.getAt(0).heading,
+  //       lastName:profileBox.getAt(0).lastName,
+  //       phone:profileBox.getAt(0).phone,
+  //       photograph:profileBox.getAt(0).photograph,
+  //       subtitle:profileBox.getAt(0).subtitle,
+  //       website:profileBox.getAt(0).website,
+  //       );
+  //   print(inspect(fProfile));
+  // }
 
   @override
   void dispose() {
@@ -106,7 +106,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    test();
+    //test();
     return Scaffold(
         appBar: AppBar(
           title: const Text('People Info'),
